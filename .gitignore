@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+.env.*
+data/raw/
+data/processed/
+artifacts/
+reports/
+dbt/target/
+dbt/dbt_packages/
+.pgdata/

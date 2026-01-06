@@ -1,0 +1,30 @@
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: hr_analytics
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  app:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    environment:
+      PGHOST: postgres
+      PGPORT: 5432
+      PGDATABASE: hr_analytics
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      PGSCHEMA_RAW: raw
+      PGSCHEMA_ANALYTICS: analytics
+      HR_PROCESSED_PATH: data/processed/hr_clean.parquet
+    ports:
+      - "8501:8501"
+    depends_on:
+      - postgres
+volumes:
+  pgdata:

@@ -1,0 +1,29 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: hr_employee
+        description: "Raw IBM HR employee attrition dataset loaded to Postgres."
+        columns:
+          - name: Attrition
+            tests:
+              - not_null
+
+models:
+  - name: fct_employee_attrition
+    description: "Curated employee fact table (BI-ready)."
+    columns:
+      - name: Attrition
+        tests:
+          - not_null
+  - name: kpi_attrition_by_role
+    description: "KPI rollup by Department and JobRole."
+    columns:
+      - name: department
+        tests:
+          - not_null
+      - name: jobrole
+        tests:
+          - not_null
