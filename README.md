@@ -4,7 +4,6 @@ A production-style, end-to-end **attrition analytics workflow** built on the cla
 This repo focuses on what an Analytics / Data Analytics Engineer would ship: **ETL + data-quality**, **curated marts in Postgres**,
 **reproducible model benchmarking**, and a **self-serve dashboard** for drilldowns.
 
-**Resume-aligned outcomes (from the included notebook):**
 - SMOTE balancing: minority class **190 → 986** (train split)
 - Best baseline model: **GradientBoosting**, test accuracy **0.8673**
 
@@ -142,12 +141,3 @@ See: `docs/aws_deployment.md`
 - CI: lint + tests via GitHub Actions
 
 ---
-
-## Why this fits an AMD Data Analytics Engineer role
-
-This project is intentionally written as **analytics engineering** work:
-- **ETL + data-quality** gates
-- **warehouse-style marts** (Postgres + optional dbt)
-- **SQL-first** KPI cuts for BI
-- **monitorable, deployable** app + pipeline primitives
-- reproducible baseline modeling with tracked metrics
